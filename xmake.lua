@@ -6,7 +6,6 @@ set_policy("build.sanitizer.leak", true)
 
 add_requires("raylib")
 add_requires("rapidjson")
-add_requires("imgui")
 
 set_warnings("all") 
 set_languages("c++17")

@@ -1,6 +1,0 @@
-[
-{
-  "directory": "/home/grechka/code/RICA_edit",
-  "arguments": ["/usr/bin/g++", "-c", "-m64", "-g", "-Wall", "-O3", "-std=c++17", "-Ilib/rlImGui", "-fsanitize=address", "-fsanitize=leak", "-DNDEBUG", "-o", "build/.objs/RICA_App/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
-  "file": "src/main.cpp"
-}]

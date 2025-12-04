@@ -1,6 +1,0 @@
-[
-{
-  "directory": "/home/grechka/code/RICA_edit",
-  "arguments": ["/usr/bin/g++", "-c", "-m64", "-g", "-Wall", "-O3", "-std=c++17", "-Ilib/rlImGui", "-I", "/home/grechka/.xmake/packages/r/raylib/5.5/e1630384937f43bbbc8e15918dfecc58/include", "-I", "/home/grechka/.xmake/packages/r/rapidjson/2025.02.05/94dc0246f1a54b63a255bff5f0bd27a8/include", "-I", "/home/grechka/.xmake/packages/i/imgui/v1.92.1/cc90cb2dcdaa4479b7f252708a83fa3d/include", "-I", "/home/grechka/.xmake/packages/i/imgui/v1.92.1/cc90cb2dcdaa4479b7f252708a83fa3d/include/imgui", "-I", "/home/grechka/.xmake/packages/i/imgui/v1.92.1/cc90cb2dcdaa4479b7f252708a83fa3d/include/backends", "-I", "/home/grechka/.xmake/packages/i/imgui/v1.92.1/cc90cb2dcdaa4479b7f252708a83fa3d/include/misc/cpp", "-fsanitize=address", "-fsanitize=leak", "-DNDEBUG", "-o", "build/.objs/RICA_App/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
-  "file": "src/main.cpp"
-}]

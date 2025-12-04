@@ -1,65 +1,65 @@
+#include <imgui.h>
 #include <raylib.h>
+#include <rlImGui.h> // Подключение ImGui и бэкенда для raylib
 #include <rlgl.h>
-#include "rlImGui.h"// Подключение ImGui и бэкенда для raylib
 
-int main()
-{
-    // Инициализация Raylib
-    const int screenWidth = 800;
-    const int screenHeight = 450;
-    InitWindow(screenWidth, screenHeight, "Raylib ImGui Example");
-    SetTargetFPS(60);
+constexpr const int FPS = 60;
 
-    // Инициализация ImGui (с использованием бэкенда raylib)
-    SetupRLImGui(true); // true для включения темного стиля
+int main() {
+  // Инициализация Raylib
+  const int screenWidth = 800;
+  const int screenHeight = 450;
+  InitWindow(screenWidth, screenHeight, "Raylib ImGui Example");
+  SetTargetFPS(FPS);
 
-    // Переменная для окна ImGui
-    bool show_demo_window = true;
-    Color raylib_color = SKYBLUE;
+  // Инициализация ImGui (с использованием бэкенда raylib)
+  rlImGuiSetup(true);
 
-    // Главный игровой цикл
-    while (!WindowShouldClose())
-    {
-        // 1. Обновление (логика)
-        // ...
+  // Переменная для окна ImGui
+  bool show_demo_window = true;
+  Color raylib_color = SKYBLUE;
 
-        // 2. Отрисовка
-        BeginDrawing();
-            ClearBackground(raylib_color);
+  // Главный игровой цикл
+  while (!WindowShouldClose()) {
+    // 1. Обновление (логика)
+    // ...
 
-            // Начать кадр ImGui
-            BeginRLImGui();
+    // 2. Отрисовка
+    BeginDrawing();
+    ClearBackground(raylib_color);
 
-                // Окно 1: Демонстрационное окно ImGui
-                if (show_demo_window)
-                    ImGui::ShowDemoWindow(&show_demo_window);
+    // Начать кадр ImGui
+    rlImGuiBegin();
 
-                // Окно 2: Наше собственное окно
-                ImGui::Begin("My Custom Window");
-                
-                ImGui::Text("Hello from ImGui!");
-                
-                // Кнопка для смены цвета фона Raylib
-                if (ImGui::Button("Change Raylib Background"))
-                {
-                    raylib_color = (raylib_color.r == SKYBLUE.r) ? LIME : SKYBLUE;
-                }
-                
-                ImGui::Checkbox("Show Demo Window", &show_demo_window);
-                
-                ImGui::End();
+    // Окно 1: Демонстрационное окно ImGui
+    if (show_demo_window)
+      ImGui::ShowDemoWindow(&show_demo_window);
 
-            // Завершить кадр ImGui
-            EndRLImGui();
+    // Окно 2: Наше собственное окно
+    ImGui::Begin("My Custom Window");
 
-        EndDrawing();
+    ImGui::Text("Hello from ImGui!");
+
+    // Кнопка для смены цвета фона Raylib
+    if (ImGui::Button("Change Raylib Background")) {
+      raylib_color = (raylib_color.r == SKYBLUE.r) ? LIME : SKYBLUE;
     }
 
-    // Завершение работы ImGui
-    ShutdownRLImGui();
+    ImGui::Checkbox("Show Demo Window", &show_demo_window);
 
-    // Завершение работы Raylib
-    CloseWindow();
+    ImGui::End();
 
-    return 0;
+    // Завершить кадр ImGui
+    rlImGuiEnd();
+
+    EndDrawing();
+  }
+
+  // Завершение работы ImGui
+  rlImGuiShutdown();
+
+  // Завершение работы Raylib
+  CloseWindow();
+
+  return 0;
 }
